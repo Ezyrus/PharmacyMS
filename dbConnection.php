@@ -4,7 +4,7 @@
     $dbName = 'pmsdb';
     $dbUsername = 'root';
     $dbPassword = '';
-    $connection = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbName);
-    return $connection;
+    $connection = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbName) or die;
+
 
 ?>
