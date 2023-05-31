@@ -7,7 +7,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button">Welcome to Pharmacy Management System, <?php echo $adminLogged; ?></a>
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button">Welcome to Pharmacy Management System, <?php echo $adminLogged_Fullname; ?></a>
         </li>
     </ul>
 
@@ -33,7 +33,7 @@
     <!-- Brand Logo -->
     <a href="dashboard.php" class="brand-link text-decoration-none d-flex justify-content-start align-items-center gap-2">
         <i class="ml-3 fas fa-solid fa-syringe fa-xl"></i>
-        <span class="brand-text font-weight-light">Pharmacy</span>
+        <span class="brand-text font-weight-light h3 font-weight-bold">Pharmacy</span>
     </a>
 
     <!-- Sidebar -->
@@ -51,7 +51,7 @@
 
                 <li class="nav-item">
                     <a href="medicine.php" class="d-flex justify-content-start align-items-center gap-2 nav-link">
-                        <i class="fas fa-solid fa-tablets fa-xl"></i>
+                        <i class="fas fa-solid fa-capsules fa-xl"></i>
                         <p>Medicines</p>
                     </a>
                 </li>
@@ -59,7 +59,7 @@
                 <li class="nav-item">
                     <a href="addMedicine.php" class="d-flex justify-content-start align-items-center gap-2 nav-link">
                         <i class="fas fa-solid fa-book-medical fa-xl"></i>
-                        <p>Add Medicine</p>
+                        <p>Add Medicines</p>
                     </a>
                 </li>
 

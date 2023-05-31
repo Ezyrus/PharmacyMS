@@ -2,6 +2,16 @@
 include 'dbConnection.php';
 session_start();
 $adminLogged = $_SESSION['adminLogged'];
+
+if (empty($adminLogged)) {
+  header('Location:/Zaptics/index.php');
+}
+$admin_sql = "SELECT * FROM `admin` where `admin_username` = '$adminLogged'";
+$admin_result = mysqli_query($connection, $admin_sql);
+$adminLogged_Fullname = "";
+while ($admin_row = mysqli_fetch_array($admin_result)) {
+  $adminLogged_Fullname = $admin_row['admin_fullname'];
+}
 ?>
 
 <!DOCTYPE html>
