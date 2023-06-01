@@ -63,13 +63,6 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="expiryDates.php" class="d-flex justify-content-start align-items-center gap-2 nav-link">
-                        <i class="fas fa-calendar-times fa-xl"></i>
-                        <p>Expiration Dates</p>
-                    </a>
-                </li>
-
             </ul>
         </nav>
 

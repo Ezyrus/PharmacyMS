@@ -4,7 +4,7 @@ session_start();
 $adminLogged = $_SESSION['adminLogged'];
 
 if (empty($adminLogged)) {
-  header('Location:/Zaptics/index.php');
+  header('Location:/PharmacyMS/index.php');
 }
 $admin_sql = "SELECT * FROM `admin` where `admin_username` = '$adminLogged'";
 $admin_result = mysqli_query($connection, $admin_sql);

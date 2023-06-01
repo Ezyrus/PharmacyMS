@@ -4,7 +4,7 @@ session_start();
 $adminLogged = $_SESSION['adminLogged'];
 
 if (empty($adminLogged)) {
-  header('Location:/Zaptics/index.php');
+  header('Location:/PharmacyMS/index.php');
 }
 $admin_sql = "SELECT * FROM `admin` where `admin_username` = '$adminLogged'";
 $admin_result = mysqli_query($connection, $admin_sql);
@@ -41,7 +41,7 @@ while ($admin_row = mysqli_fetch_array($admin_result)) {
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
 
-  <?php include 'sidebar.php'; ?>
+    <?php include 'sidebar.php'; ?>
 
     <div class="content-wrapper">
 
@@ -62,25 +62,19 @@ while ($admin_row = mysqli_fetch_array($admin_result)) {
 
               <div class="card card-secondary card-outline">
                 <div class="card-header">
-                  <h5 class="m-0"><i class="fas fa-solid fa-tablets fa-sm"></i> Total Medicines</h5>
+                  <h5 class="m-0"><i class="fas fa-solid fa-tablets fa-sm mr-2"></i> Total Medicines</h5>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-title">Special title treatment</h6>
-
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">View</a>
+                  <h5 class="card-title">The total number of medicines as of today is <span id="totalMedicines" style="font-style:italic; color:blue;"></span></h5>
                 </div>
               </div>
 
               <div class="card card-secondary card-outline">
                 <div class="card-header">
-                  <h5 class="m-0">Featured</h5>
+                  <h5 class="m-0"><i class="fas fa-solid fa-building fa-sm mr-2"></i> Similar Company</h5>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-title">Special title treatment</h6>
-
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">View</a>
+                  <h5 class="card-title">A company named <span id="similarCompany" style="font-style:italic; color:blue;"></span> provided <span id="similarCompanyCount" style="font-style:italic;  color:blue;"></span> of different types of medicines for the pharmacy.</h5>
                 </div>
               </div>
             </div>
@@ -88,25 +82,19 @@ while ($admin_row = mysqli_fetch_array($admin_result)) {
             <div class="col-lg-6">
               <div class="card card-secondary card-outline">
                 <div class="card-header">
-                  <h5 class="m-0">Featured</h5>
+                  <h5 class="m-0"><i class="fas fa-calendar-times fa-xl mr-2"></i> Expiring this Month</h5>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-title">Special title treatment</h6>
-
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">View</a>
+                  <h5 class="card-title">A medicine/s named <span id="medicineName" style="font-style:italic; color:blue;"></span> with the number of <span id="medicineNameCount" style="font-style:italic;  color:blue;"></span> is expiring this month of <span id="monthYear" style="font-style:italic;  color:blue;"></span>.</h5>
                 </div>
               </div>
 
               <div class="card card-secondary card-outline">
                 <div class="card-header">
-                  <h5 class="m-0">Featured</h5>
+                  <h5 class="m-0"><i class="fas fa-light fa-boxes fa-sm mr-2"></i> Out of Stocks</h5>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-title">Special title treatment</h6>
-
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">View</a>
+                  <h5 class="card-title">A medicine/s named <span id="medicineNameOutOfStocks" style="font-style:italic; color:blue;"></span> is now out of stocks.</h5>
                 </div>
               </div>
             </div>
@@ -126,6 +114,56 @@ while ($admin_row = mysqli_fetch_array($admin_result)) {
     </footer>
   </div>
 
+  <script>
+    $.ajax({
+      type: 'POST',
+      url: 'actions/medicine_allRow.php',
+      dataType: 'json',
+      success: function(response) {
+        $('#totalMedicines').text(response.length);
+      }
+    });
+    $.ajax({
+      type: 'POST',
+      url: 'actions/medicine_allRowTotalCompany.php',
+      dataType: 'json',
+      success: function(response) {
+        if (response.status) {
+        $('#similarCompany').text(response.mostMentionedCompany);
+        $('#similarCompanyCount').text(response.companyCount);
+        } else {
+          $('#similarCompany').parent().text("No data to show.");
+        }
+      }
+    });
+    $.ajax({
+      type: 'POST',
+      url: 'actions/medicine_expiringThisMonth.php',
+      dataType: 'json',
+      success: function(response) {
+        if (response.status) {
+        $('#medicineName').text(response.expiryMedicines);
+        $('#medicineNameCount').text(response.expiryCount);
+        $('#monthYear').text(response.monthYear);
+        } else {
+          $('#medicineName').parent().text("No data to show.");
+        }
+      }
+    });
+
+    $.ajax({
+      type: 'POST',
+      url: 'actions/medicine_oufOfStocks.php',
+      dataType: 'json',
+      success: function(response) {
+        if (response.status) {
+          $('#medicineNameOutOfStocks').text(response.zeroStockMedicines);
+        } else {
+          $('#medicineNameOutOfStocks').parent().text("No data to show.");
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

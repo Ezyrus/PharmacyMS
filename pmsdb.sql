@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2023 at 07:19 PM
+-- Generation Time: Jun 01, 2023 at 03:45 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -38,7 +38,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_username`, `admin_password`, `admin_fullname`) VALUES
-('dc', 'dc', 'Darren Carbungco');
+('dc', 'dc', 'Darren Carbungco'),
+('jj', 'jj', 'Judell Julia');
 
 -- --------------------------------------------------------
 
@@ -61,7 +62,9 @@ CREATE TABLE `medicine` (
 --
 
 INSERT INTO `medicine` (`medicine_id`, `medicine_name`, `medicine_price`, `medicine_stocks`, `medicine_company`, `medicine_manufacturedDate`, `medicine_expirationDate`) VALUES
-(11, 'newMedicine', 999, 9999, 'Company', '2002-07-27', '2002-07-28');
+(11, 'newMedicine', 999, 9999, 'Company', '2002-07-27', '2002-06-05'),
+(12, 'newMed', 1111, 11, 'TheCompany', '2023-06-10', '2023-06-01'),
+(13, 'asd', 1, 0, 'TheCompany', '2023-06-28', '2020-06-01');
 
 --
 -- Indexes for dumped tables
@@ -87,7 +90,7 @@ ALTER TABLE `medicine`
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `medicine_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `medicine_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
