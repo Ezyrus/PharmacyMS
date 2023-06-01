@@ -61,8 +61,13 @@ while ($admin_row = mysqli_fetch_array($admin_result)) {
             <div class="col-lg-6">
 
               <div class="card card-secondary card-outline">
-                <div class="card-header">
+                <div class="card-header d-flex align-items-center justify-content-between">
                   <h5 class="m-0"><i class="fas fa-solid fa-tablets fa-sm mr-2"></i> Total Medicines</h5>
+
+                  <button type="button" class="btn btn-tool position-absolute end-0" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">The total number of medicines as of today is <span id="totalMedicines" style="font-style:italic; color:blue;"></span></h5>
@@ -70,8 +75,12 @@ while ($admin_row = mysqli_fetch_array($admin_result)) {
               </div>
 
               <div class="card card-secondary card-outline">
-                <div class="card-header">
+                <div class="card-header d-flex align-items-center justify-content-between">
                   <h5 class="m-0"><i class="fas fa-solid fa-building fa-sm mr-2"></i> Similar Company</h5>
+
+                  <button type="button" class="btn btn-tool position-absolute end-0" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">A company named <span id="similarCompany" style="font-style:italic; color:blue;"></span> provided <span id="similarCompanyCount" style="font-style:italic;  color:blue;"></span> of different types of medicines for the pharmacy.</h5>
@@ -81,8 +90,12 @@ while ($admin_row = mysqli_fetch_array($admin_result)) {
 
             <div class="col-lg-6">
               <div class="card card-secondary card-outline">
-                <div class="card-header">
+                <div class="card-header d-flex align-items-center justify-content-between">
                   <h5 class="m-0"><i class="fas fa-calendar-times fa-xl mr-2"></i> Expiring this Month</h5>
+
+                  <button type="button" class="btn btn-tool position-absolute end-0" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">A medicine/s named <span id="medicineName" style="font-style:italic; color:blue;"></span> with the number of <span id="medicineNameCount" style="font-style:italic;  color:blue;"></span> is expiring this month of <span id="monthYear" style="font-style:italic;  color:blue;"></span>.</h5>
@@ -90,8 +103,12 @@ while ($admin_row = mysqli_fetch_array($admin_result)) {
               </div>
 
               <div class="card card-secondary card-outline">
-                <div class="card-header">
+                <div class="card-header d-flex align-items-center justify-content-between">
                   <h5 class="m-0"><i class="fas fa-light fa-boxes fa-sm mr-2"></i> Out of Stocks</h5>
+
+                  <button type="button" class="btn btn-tool position-absolute end-0" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">A medicine/s named <span id="medicineNameOutOfStocks" style="font-style:italic; color:blue;"></span> is now out of stocks.</h5>
@@ -129,8 +146,8 @@ while ($admin_row = mysqli_fetch_array($admin_result)) {
       dataType: 'json',
       success: function(response) {
         if (response.status) {
-        $('#similarCompany').text(response.mostMentionedCompany);
-        $('#similarCompanyCount').text(response.companyCount);
+          $('#similarCompany').text(response.mostMentionedCompany);
+          $('#similarCompanyCount').text(response.companyCount);
         } else {
           $('#similarCompany').parent().text("No data to show.");
         }
@@ -142,9 +159,9 @@ while ($admin_row = mysqli_fetch_array($admin_result)) {
       dataType: 'json',
       success: function(response) {
         if (response.status) {
-        $('#medicineName').text(response.expiryMedicines);
-        $('#medicineNameCount').text(response.expiryCount);
-        $('#monthYear').text(response.monthYear);
+          $('#medicineName').text(response.expiryMedicines);
+          $('#medicineNameCount').text(response.expiryCount);
+          $('#monthYear').text(response.monthYear);
         } else {
           $('#medicineName').parent().text("No data to show.");
         }
