@@ -33,7 +33,7 @@
     <!-- Brand Logo -->
     <a href="dashboard.php" class="brand-link text-decoration-none d-flex justify-content-start align-items-center gap-2">
         <i class="ml-3 fas fa-solid fa-syringe fa-xl"></i>
-        <span class="brand-text font-weight-light h3 font-weight-bold">Pharmacy</span>
+        <span class="brand-text font-weight-light h3 font-weight-bold">Leinmark</span>
     </a>
 
     <!-- Sidebar -->
