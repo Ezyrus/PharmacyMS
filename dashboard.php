@@ -127,7 +127,7 @@ while ($admin_row = mysqli_fetch_array($admin_result)) {
       <div class="float-right d-none d-sm-inline">
         Software Engineering
       </div>
-      <strong>Copyright &copy; 2023-2024 <a href="#" class="text-decoration-none">Pharmacy Management System</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2023-2024 <a href="#" class="text-decoration-none">Leinmark Management System</a>.</strong> All rights reserved.
     </footer>
   </div>
 
