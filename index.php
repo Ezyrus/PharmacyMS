@@ -35,7 +35,7 @@ include 'dbConnection.php';
 
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <h2><i class="fas fa-solid fa-syringe fa-xl"></i> Pharmacy Management System</h2>
+                <h2><i class="fas fa-solid fa-syringe fa-xl"></i> Leinmark Management System</h2>
             </div>
             <div class="card-body">
                 <p class="login-box-msg text-secondary">Sign in to start your session.</p>

@@ -7,7 +7,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button">Welcome to Pharmacy Management System, <?php echo $adminLogged_Fullname; ?></a>
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button">Welcome to Leinmark Management System, <?php echo $adminLogged_Fullname; ?></a>
         </li>
     </ul>
 
